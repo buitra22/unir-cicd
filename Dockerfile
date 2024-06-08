@@ -17,6 +17,9 @@ COPY test ./test
 RUN pip install --upgrade pip
 RUN pip install -r requires
 
-# Comando por defecto para ejecutar los tests
+# Establecer el PYTHONPATH y el comando por defecto para ejecutar los tests
+ENV PYTHONPATH=/opt/calc
+
 CMD ["pytest", "--cov=app", "--cov-report=xml:results/coverage.xml", "--cov-report=html:results/coverage", "--junit-xml=results/unit_result.xml"]
+
 
